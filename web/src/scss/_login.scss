@@ -1,0 +1,60 @@
+.login{
+    width: 100%;
+    min-height: 100vh;
+    background-color: $gray-color-700;
+
+    @include flex(center, center, column);
+
+    .header{
+        width: 100%;
+        max-width: 41.6rem;
+        @include flex(center, center, column);
+        margin-bottom: 8rem;
+
+        img{
+            margin-bottom: 3.2rem;
+        }
+
+        p{
+            width: 100%;
+            max-width: 40rem;
+
+            font-family: 'inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1.6rem;
+            line-height: 150%;
+            text-align: center;
+            letter-spacing: -0.04em;
+            color: $gray-color-400;
+        }
+    }
+    form{
+        width: 100%;
+        max-width: 41.6rem;
+
+        .campo{
+            margin-bottom: 3.2rem;
+
+            a{
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 1.2rem;
+                line-height: 18px;
+
+                display: block;
+                text-align: right;
+                letter-spacing: -0.04em;
+                text-decoration-line: underline;
+
+                color: $brand-color-01;
+                margin-top: 1.6rem;
+            }
+        }
+
+        .btn{
+            width: 100%;
+        }
+    }
+}

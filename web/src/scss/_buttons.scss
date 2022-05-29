@@ -1,0 +1,28 @@
+.btn{
+    display: inline-block;
+    line-height: 4.6rem;
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    transition: all 0.2s;
+    padding: 0 1.6rem;
+
+    &:hover{
+        opacity: .9;
+    }
+}
+
+.btn-primary{
+    background-color: $brand-color-01;
+    color: $light-color !important;
+}
+
+.btn-secondary{
+    background-color: $brand-color-02;
+    color: $light-color !important;
+}
+
+.btn-secondary-transparent{
+    color: $brand-color-02;
+}

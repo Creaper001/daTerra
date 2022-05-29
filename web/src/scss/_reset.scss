@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+html{
+    font-size: 62.5%;
+    font-weight: 400;
+    scroll-behavior: smooth;
+}
+
+html,
+body{
+    overflow-x: hidden;
+}
+
+button{
+    background: transparent;
+    cursor: pointer;
+}
+
+p, a{
+    font-size: 1.6rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $brand-color-02; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: $brand-color-01; 
+}
+
+:target {
+    scroll-margin-top: 10.4rem;
+}
