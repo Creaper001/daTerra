@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { isAuthenticated } from "./services/auth";
-import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Dashboard from "./pages/Dashboard";
 import Address from "./pages/Address";
 import Logout from "./pages/Logout";
 import Perfil from "./pages/Perfil";
+import Interest from "./pages/Interest";
 
 const AuthRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -57,7 +57,6 @@ const Routes = () => (
       <IndexRoute exact path="/" />
 
       <AuthRoute path="/signin" component={SignIn} />
-      <AuthRoute path="/signup" component={SignUp} />
 
       <Route path="/undefined">
         <Redirect to="/" />
@@ -66,6 +65,7 @@ const Routes = () => (
       <PrivateRoute path="/dashboard" component={Dashboard} />
       <PrivateRoute path="/address" component={Address} />
       <PrivateRoute path="/perfil" component={Perfil} />
+      <PrivateRoute path="/interest" component={Interest} />
 
       <PrivateRoute path="/logout" component={Logout} />
       <Route path="*" component={() => <h1>Page not found</h1>} />

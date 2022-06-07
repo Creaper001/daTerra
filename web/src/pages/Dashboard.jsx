@@ -88,7 +88,7 @@ class Dashboard extends Component {
               </li>
 
               <li>
-                <a href="">
+                <NavLink to="/interest">
                   <div class="item">
                     <svg data-src="./icone/check-square.svg"></svg>
                     <div class="text">
@@ -97,7 +97,7 @@ class Dashboard extends Component {
                     </div>
                   </div>
                   <svg data-src="./icone/chevron-right.svg"></svg>
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>
