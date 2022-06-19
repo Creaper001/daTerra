@@ -14,6 +14,8 @@ Route.group(() => {
   Route.group(() => {
     Route.post("/consumers", "ConsumersController.create");
     Route.get("/consumers", "ConsumersController.index");
+    Route.get("/consumers/interests", "ConsumersController.getInterests");
+    Route.post("/consumers/interests", "ConsumersController.setInterests");
   });
 
   Route.group(() => {
@@ -26,5 +28,9 @@ Route.group(() => {
     Route.get("/addresses", "AddressesController.index");
     Route.delete("/addresses/:code", "AddressesController.delete");
     Route.patch("/addresses/:code", "AddressesController.main");
+  });
+
+  Route.group(() => {
+    Route.get("/products", "ProductsController.index");
   });
 }).middleware("auth:api");

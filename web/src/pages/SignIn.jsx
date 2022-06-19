@@ -58,7 +58,6 @@ class SignIn extends Component {
                 onChange={(e) => this.setState({ password: e.target.value })}
                 autoComplete="none"
               />
-              <svg data-src="./img/icone/eye.svg"></svg>
               <label htmlFor="">Senha</label>
             </div>
           </div>

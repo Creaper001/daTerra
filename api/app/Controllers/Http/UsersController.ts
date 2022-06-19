@@ -31,17 +31,18 @@ export default class UsersController {
     if (!auth.user) return response.unauthorized();
     const body = request.only(["name", "email", "password", "newPassword", "phone"]);
 
-    if (body.password === "" || body.newPassword === "") return response.badRequest();
-
-    const verify = await Hash.verify(auth.user.password, body.password);
-    if (!verify) return response.unauthorized();
-
-    const hashPassword = await Hash.make(body.newPassword);
+    let hashPassword = "";
+    if (body.password !== "" && body.newPassword !== "") {
+      const verify = await Hash.verify(auth.user.password, body.password);
+      console.log(verify, body);
+      if (!verify) return response.unauthorized();
+      hashPassword = await Hash.make(body.newPassword);
+    }
 
     const user = auth.user;
     user.name = body.name;
     user.email = body.email;
-    user.password = hashPassword;
+    user.password = hashPassword !== "" ? hashPassword : user.password;
     user.phone = body.phone;
     await user.save();
 

@@ -21,25 +21,25 @@ class Dashboard extends Component {
   render() {
     return (
       <NavBar>
-        <section class="s-config bg">
-          <div class="container">
-            <div class="breadcrumb">
+        <section className="s-config bg">
+          <div className="container">
+            <div className="breadcrumb">
               <a href="./index.html">Configurações</a>
             </div>
 
-            <div class="perfil">
-              <div class="text">
+            <div className="perfil">
+              <div className="text">
                 <h6>{this.state.user.name}</h6>
                 <p>10 caixas recebidas</p>
               </div>
             </div>
 
-            <ul class="config content">
+            <ul className="config content">
               <li>
                 <NavLink to="/perfil">
-                  <div class="item">
+                  <div className="item">
                     <svg data-src="./icone/user.svg"></svg>
-                    <div class="text">
+                    <div className="text">
                       <h6>Dados</h6>
                       <p>Gerencie seus dados</p>
                     </div>
@@ -48,36 +48,36 @@ class Dashboard extends Component {
                 </NavLink>
               </li>
               <li>
-                <a href="">
-                  <div class="item">
+                <NavLink to="/pagamentos">
+                  <div className="item">
                     <svg data-src="./icone/card.svg"></svg>
-                    <div class="text">
+                    <div className="text">
                       <h6>Cartões</h6>
                       <p>Gerencie seus cartões</p>
                     </div>
                   </div>
 
                   <svg data-src="./icone/chevron-right.svg"></svg>
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="./signature.html">
-                  <div class="item">
+                <NavLink to="/assinatura">
+                  <div className="item">
                     <svg data-src="./icone/file-text.svg"></svg>
-                    <div class="text">
+                    <div className="text">
                       <h6>Assinatura</h6>
                       <p>Quer receber mais produtos?</p>
                     </div>
                   </div>
 
                   <svg data-src="./icone/chevron-right.svg"></svg>
-                </a>
+                </NavLink>
               </li>
               <li>
                 <NavLink to="/address">
-                  <div class="item">
+                  <div className="item">
                     <svg data-src="./icone/map.svg"></svg>
-                    <div class="text">
+                    <div className="text">
                       <h6>Endereço</h6>
                       <p>Veja os endereços cadastrados</p>
                     </div>
@@ -89,9 +89,9 @@ class Dashboard extends Component {
 
               <li>
                 <NavLink to="/interest">
-                  <div class="item">
+                  <div className="item">
                     <svg data-src="./icone/check-square.svg"></svg>
-                    <div class="text">
+                    <div className="text">
                       <h6>Interesses</h6>
                       <p>Começou a gostar de um alimento novo?</p>
                     </div>

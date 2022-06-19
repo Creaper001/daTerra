@@ -16,6 +16,7 @@ class Dashboard extends Component {
       phone: "",
 
       error: null,
+      button: "Atualizar dados",
     };
   }
 
@@ -31,11 +32,13 @@ class Dashboard extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+    this.setState({ button: "Atualizando..." });
+
     const { name, email, password, newPassword, confirmPassword, phone } =
       this.state;
 
     if (newPassword !== confirmPassword) {
-      this.setState({ error: "Senhas não conferem" });
+      alert("As senhas não conferem");
     } else {
       await api.put("/users", {
         name,
@@ -47,7 +50,9 @@ class Dashboard extends Component {
       const response = await api.get("/users");
       this.setState({ user: response.data });
     }
-  }
+    
+    this.setState({ button: "Atualizar dados" });
+  };
 
   render() {
     return (
@@ -110,7 +115,6 @@ class Dashboard extends Component {
                         }
                         autoComplete="none"
                       />
-                      <svg data-src="./icone/eye.svg"></svg>
                       <label htmlFor="">Senha atual</label>
                     </div>
                   </div>
@@ -128,7 +132,6 @@ class Dashboard extends Component {
                         }
                         autoComplete="none"
                       />
-                      <svg data-src="./icone/eye.svg"></svg>
                       <label htmlFor="">Nova senha</label>
                     </div>
                   </div>
@@ -144,8 +147,7 @@ class Dashboard extends Component {
                         }
                         autoComplete="none"
                       />
-                      <svg data-src="./icone/eye.svg"></svg>
-                      <label htmlFor="">Confirme sua senha</label>
+                      <label htmlFor="">Confirme a nova senha</label>
                     </div>
                   </div>
                 </div>
@@ -167,7 +169,7 @@ class Dashboard extends Component {
                   </div>
                 </div>
               </div>
-              <button className="btn btn-secondary">Atualizar dados</button>
+              <button className="btn btn-secondary">{this.state.button}</button>
             </form>
           </div>
         </section>

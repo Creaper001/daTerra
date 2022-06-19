@@ -7,56 +7,50 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      interests: {
-        Temperos: [
-          ["1", false],
-          ["2", false],
-          ["3", false],
-        ],
-        Verduras: [
-          ["4", false],
-          ["5", false],
-          ["6", false],
-        ],
-        Legumes: [
-          ["7", false],
-          ["8", false],
-          ["9", false],
-        ],
-        Frutas: [
-          ["11", false],
-          ["12", false],
-          ["13", false],
-        ],
-      },
-
+      products: {},
       selected: "Temperos",
       search: "",
     };
   }
 
   searchInterest() {
-    return this.state.interests[this.state.selected].filter((item) => {
-      return this.state.search !== "" ? item.includes(this.state.search) : true;
+    if (this.state.products[this.state.selected] === undefined) return [];
+    return this.state.products[this.state.selected].filter((item) => {
+      return this.state.search !== "" ? item[2].includes(this.state.search) : true;
     });
   }
 
+  setProducts(products = [], interests = []) {
+    let data = {};
+    products.forEach((product) => {
+      const active = interests.map((interest) => interest.product_id).includes(Number(product.code));
+      if (data[product.type] === undefined) data[product.type] = [];
+      data[product.type].push([product.code, active, product.name]);
+    });
+    this.setState({ products: data, selected: data[products[0].type] });
+  }
+
   async componentDidMount() {
-    const response = await api.get("/interests");
-    this.setState({ interests: response.data });
+    const products = await api.get("/products");
+    const interest = await api.get("/consumers/interests");
+    this.setProducts(products.data, interest.data);
   }
 
   async saveInterest() {
-    await api.patch(`/interests`, this.state.interests);
-    const response = await api.get("/interests");
-    this.setState({ interests: response.data });
+    const interests = [];
+    Object.values(this.state.products).forEach((product) => {
+      product.forEach((item) => {
+        interests.push(item);
+      });
+    });
+    await api.post(`/consumers/interests`, { interests });
   }
 
   setInterests(index, status) {
-    const interests = this.state.interests;
-    interests[this.state.selected][index][1] = status;
-    this.setState({ interests });
-    console.log(interests);
+    const products = this.state.products;
+    products[this.state.selected][index][1] = status;
+    this.setState({ products });
+    this.saveInterest();
   }
 
   render() {
@@ -82,7 +76,7 @@ class Dashboard extends Component {
 
             <ul className="interest-list">
               <ul className="menu">
-                {Object.keys(this.state.interests).map((interest) => (
+                {Object.keys(this.state.products).map((interest) => (
                   <li key={interest}>
                     <button
                       onClick={() => this.setState({ selected: interest })}
@@ -95,7 +89,7 @@ class Dashboard extends Component {
               {this.searchInterest().map((item, index) => (
                 <li key={index}>
                   <label htmlFor={item[0]} className="check">
-                    {item[0]}
+                    {item[2]}
                     <input
                       type="checkbox"
                       id={item[0]}

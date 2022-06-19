@@ -18,4 +18,28 @@ export default class ConsumersController {
 
     return response.created(consumer);
   }
+  public async getInterests({ auth, request, response }: HttpContextContract) {
+    if (!auth.user) return response.unauthorized();
+    const userInterests = auth.user.related("interests");
+    return await userInterests.query();
+  }
+  public async setInterests({ auth, request, response }: HttpContextContract) {
+    if (!auth.user) return response.unauthorized();
+
+    const body = request.only(["interests"]);
+    const create = body.interests.filter((interest) => interest[1] === true);
+    const remove = body.interests.filter((interest) => interest[1] === false);
+
+    const userInterests = auth.user.related("interests");
+    remove.forEach(async (interest) => {
+      await userInterests.query().where("product_id", interest[0]).delete();
+    });
+    create.forEach(async (interest) => {
+      await userInterests.create({
+        product_id: interest[0],
+      });
+    });
+
+    return await userInterests.query();
+  }
 }
