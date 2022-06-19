@@ -1,7 +1,7 @@
 import BaseSchema from "@ioc:Adonis/Lucid/Schema";
 
-export default class Products extends BaseSchema {
-  protected tableName = "products";
+export default class Plans extends BaseSchema {
+  protected tableName = "plans";
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
@@ -9,7 +9,8 @@ export default class Products extends BaseSchema {
       table.string("code").notNullable();
 
       table.string("name").notNullable();
-      table.string("type").notNullable();
+      table.decimal("price", 10, 2).notNullable();
+      table.integer("units").notNullable();
 
       table.timestamp("expires_at", { useTz: true }).nullable();
       table.timestamp("created_at", { useTz: true }).notNullable();

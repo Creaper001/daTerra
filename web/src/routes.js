@@ -7,6 +7,8 @@ import Address from "./pages/Address";
 import Logout from "./pages/Logout";
 import Perfil from "./pages/Perfil";
 import Interest from "./pages/Interest";
+import Signature from "./pages/Signature";
+import History from "./pages/History";
 
 const AuthRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -66,6 +68,8 @@ const Routes = () => (
       <PrivateRoute path="/address" component={Address} />
       <PrivateRoute path="/perfil" component={Perfil} />
       <PrivateRoute path="/interest" component={Interest} />
+      <PrivateRoute path="/signature" component={Signature} />
+      <PrivateRoute path="/history" component={History} />
 
       <PrivateRoute path="/logout" component={Logout} />
       <Route path="*" component={() => <h1>Page not found</h1>} />

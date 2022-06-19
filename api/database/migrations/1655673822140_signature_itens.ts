@@ -1,11 +1,12 @@
 import BaseSchema from "@ioc:Adonis/Lucid/Schema";
 
-export default class Interests extends BaseSchema {
-  protected tableName = "interests";
+export default class SignatureItems extends BaseSchema {
+  protected tableName = "signature_itens";
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments("id").primary();
+      table.boolean("units").notNullable();
 
       table
         .integer("product_id")
@@ -13,7 +14,12 @@ export default class Interests extends BaseSchema {
         .references("id")
         .inTable("products")
         .onDelete("CASCADE");
-      table.integer("user_id").unsigned().references("id").inTable("users").onDelete("CASCADE");
+      table
+        .integer("signature_id")
+        .unsigned()
+        .references("id")
+        .inTable("signatures")
+        .onDelete("CASCADE");
 
       table.timestamp("created_at", { useTz: true });
       table.timestamp("updated_at", { useTz: true });

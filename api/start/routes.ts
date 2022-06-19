@@ -16,6 +16,11 @@ Route.group(() => {
     Route.get("/consumers", "ConsumersController.index");
     Route.get("/consumers/interests", "ConsumersController.getInterests");
     Route.post("/consumers/interests", "ConsumersController.setInterests");
+    Route.get("/consumers/signature", "ConsumersController.getSignature");
+    Route.post("/consumers/signature", "ConsumersController.setSignature");
+    Route.post("/consumers/signature/renovation", "ConsumersController.setRenovation");
+    Route.get("/consumers/signature/items", "ConsumersController.getSignatureItems");
+    Route.post("/consumers/signature/items", "ConsumersController.setSignatureItems");
   });
 
   Route.group(() => {
@@ -32,5 +37,9 @@ Route.group(() => {
 
   Route.group(() => {
     Route.get("/products", "ProductsController.index");
+  });
+
+  Route.group(() => {
+    Route.get("/plans", "PlansController.index");
   });
 }).middleware("auth:api");

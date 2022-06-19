@@ -1,9 +1,8 @@
 import { DateTime } from "luxon";
 import { BaseModel, column, beforeCreate } from "@ioc:Adonis/Lucid/Orm";
 import { v4 as uuid } from "uuid";
-import User from "App/Models/User";
 
-export default class Product extends BaseModel {
+export default class Plan extends BaseModel {
   @column({ isPrimary: true, serializeAs: null })
   public id: number;
 
@@ -14,7 +13,10 @@ export default class Product extends BaseModel {
   public name: string;
 
   @column()
-  public type: string;
+  public price: number;
+
+  @column()
+  public units: number;
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime;
@@ -23,7 +25,7 @@ export default class Product extends BaseModel {
   public updatedAt: DateTime;
 
   @beforeCreate()
-  public static assignUuid(user: Product) {
+  public static assignUuid(user: Plan) {
     user.code = uuid();
   }
 }

@@ -12,6 +12,7 @@ import Consumer from "App/Models/Consumer";
 import Producer from "App/Models/Producer";
 import Address from "App/Models/Address";
 import Interest from "App/Models/Interest";
+import Signature from "App/Models/Signature";
 import { v4 as uuid } from "uuid";
 
 export default class User extends BaseModel {
@@ -44,6 +45,9 @@ export default class User extends BaseModel {
 
   @hasMany(() => Interest, { foreignKey: "user_id" })
   public interests: HasMany<typeof Interest>;
+
+  @hasMany(() => Signature, { foreignKey: "user_id" })
+  public signature: HasMany<typeof Signature>;
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime;

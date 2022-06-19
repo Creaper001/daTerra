@@ -1,11 +1,14 @@
+import Signature from "App/Models/Signature";
+import Product from "App/Models/Product";
 import { DateTime } from "luxon";
 import { BaseModel, column, HasOne, hasOne } from "@ioc:Adonis/Lucid/Orm";
-import User from "App/Models/User";
-import Product from "App/Models/Product";
 
-export default class Interest extends BaseModel {
+export default class SignatureIten extends BaseModel {
   @column({ isPrimary: true, serializeAs: null })
   public id: number;
+
+  @column()
+  public units: number;
 
   @column()
   public product_id: number;
@@ -13,11 +16,11 @@ export default class Interest extends BaseModel {
   @hasOne(() => Product, { foreignKey: "product_id" })
   public product: HasOne<typeof Product>;
 
-  @column({ serializeAs: null })
-  public user_id: number;
+  @column()
+  public signature_id: number;
 
-  @hasOne(() => User, { foreignKey: "user_id" })
-  public user: HasOne<typeof User>;
+  @hasOne(() => Signature, { foreignKey: "signature_id" })
+  public signature: HasOne<typeof Signature>;
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime;

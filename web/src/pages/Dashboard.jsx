@@ -61,7 +61,7 @@ class Dashboard extends Component {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/assinatura">
+                <NavLink to="/signature">
                   <div className="item">
                     <svg data-src="./icone/file-text.svg"></svg>
                     <div className="text">
