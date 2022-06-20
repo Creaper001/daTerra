@@ -13,12 +13,18 @@ class Dashboard extends Component {
 
   async componentDidMount() {
     const plans = await api.get("/plans");
-    const signature = await api.get("/consumers/signature");
+    const signature = await api.get("/consumers/signature/all");
     this.setSignature(signature.data, plans.data);
   }
 
   setSignature(signature, plans) {
-    const newPlans = signature.map((s) => plans.find((plan) => plan.code = s.plan_id));
+    let newPlans = signature.map((s) =>
+      plans.find((plan) => Number(plan.code) === s.plan_id)
+    );
+    newPlans = newPlans.map((plan, index) =>{
+      plan.created_at = signature[index].created_at;
+      return plan;
+    });
     this.setState({ plans: newPlans });
   }
 
@@ -38,7 +44,9 @@ class Dashboard extends Component {
                 <li key={index}>
                   <div className="text">
                     <h6>Pacote {plan.name}</h6>
-                    <p>{plan.created_at}</p>
+                    <p>
+                      {new Date(plan.created_at).toLocaleDateString("pt-BR")}
+                    </p>
                   </div>
                   <h6>R$ {plan.price}</h6>
                 </li>

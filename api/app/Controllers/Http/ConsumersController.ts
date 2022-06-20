@@ -1,3 +1,4 @@
+import { DateTime } from "luxon";
 import type { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import SignatureIten from "App/Models/SignatureIten";
 
@@ -43,10 +44,17 @@ export default class ConsumersController {
 
     return await userInterests.query();
   }
+  public async getAllSignature({ auth, response }: HttpContextContract) {
+    if (!auth.user) return response.unauthorized();
+    const userSignature = auth.user.related("signature");
+    return await userSignature.query().orderBy("created_at", "desc");
+  }
   public async getSignature({ auth, response }: HttpContextContract) {
     if (!auth.user) return response.unauthorized();
     const userSignature = auth.user.related("signature");
-    return await userSignature.query();
+    return await userSignature
+      .query()
+      .where("created_at", ">", DateTime.local().minus({ month: 1 }).toSQLDate());
   }
   public async setSignature({ auth, request, response }: HttpContextContract) {
     if (!auth.user) return response.unauthorized();
@@ -57,7 +65,11 @@ export default class ConsumersController {
 
     const userSignature = auth.user.related("signature");
     remove.forEach(async (plan: number[]) => {
-      await userSignature.query().where("plan_id", plan[0]).delete();
+      await userSignature
+        .query()
+        .where("created_at", ">", DateTime.local().minus({ month: 1 }).toSQLDate())
+        .where("plan_id", plan[0])
+        .delete();
     });
     create.forEach(async (plan: number[]) => {
       await userSignature.create({
@@ -108,7 +120,11 @@ export default class ConsumersController {
   }
   public async getSignatureItems({ auth, response }: HttpContextContract) {
     if (!auth.user) return response.unauthorized();
-    const userSignature = await auth.user.related("signature").query().first();
+    const userSignature = await auth.user
+      .related("signature")
+      .query()
+      .where("created_at", ">", DateTime.local().minus({ month: 1 }).toSQLTime())
+      .first();
     if (!userSignature) return response.notFound();
     return SignatureIten.query().where("signature_id", userSignature.id);
   }

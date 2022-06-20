@@ -16,6 +16,7 @@ Route.group(() => {
     Route.get("/consumers", "ConsumersController.index");
     Route.get("/consumers/interests", "ConsumersController.getInterests");
     Route.post("/consumers/interests", "ConsumersController.setInterests");
+    Route.get("/consumers/signature/all", "ConsumersController.getAllSignature");
     Route.get("/consumers/signature", "ConsumersController.getSignature");
     Route.post("/consumers/signature", "ConsumersController.setSignature");
     Route.post("/consumers/signature/renovation", "ConsumersController.setRenovation");
