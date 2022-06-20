@@ -1,0 +1,32 @@
+.s-banner{
+    padding: 4rem 0;
+
+
+    h4{
+        margin-bottom: 2.4rem;
+    }
+
+    .banner{
+        padding: 4rem 8rem;
+        background-color: $brand-color-01;
+        border-radius: 8px;
+        position: relative;
+        @include flex(flex-start, center, column);
+        gap: 3.2rem;
+
+        h3{
+            width: 100%;
+            max-width: 42.6rem;
+            font-family: 'Poppins';
+            line-height: 140%;
+            color: $light-color;
+        }
+
+        img{
+            position: absolute;
+            right: 8rem;
+            top: -.8rem;
+        }
+
+    }
+}

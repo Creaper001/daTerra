@@ -95,7 +95,11 @@ export default class ConsumersController {
 
     const body = request.only(["itens"]);
 
-    const userSignature = await auth.user.related("signature").query().first();
+    const userSignature = await auth.user
+      .related("signature")
+      .query()
+      .where("created_at", ">", DateTime.local().minus({ month: 1 }).toSQLDate())
+      .first();
     if (!userSignature) return response.notFound();
 
     body.itens.forEach(async (item: number[]) => {
@@ -123,7 +127,7 @@ export default class ConsumersController {
     const userSignature = await auth.user
       .related("signature")
       .query()
-      .where("created_at", ">", DateTime.local().minus({ month: 1 }).toSQLTime())
+      .where("created_at", ">", DateTime.local().minus({ month: 1 }).toSQLDate())
       .first();
     if (!userSignature) return response.notFound();
     return SignatureIten.query().where("signature_id", userSignature.id);

@@ -9,6 +9,7 @@ import Perfil from "./pages/Perfil";
 import Interest from "./pages/Interest";
 import Signature from "./pages/Signature";
 import History from "./pages/History";
+import SignUp from "./pages/SignUp";
 
 const AuthRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -59,6 +60,7 @@ const Routes = () => (
       <IndexRoute exact path="/" />
 
       <AuthRoute path="/signin" component={SignIn} />
+      <Route path="/signup" component={SignUp} />
 
       <Route path="/undefined">
         <Redirect to="/" />

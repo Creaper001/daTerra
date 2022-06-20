@@ -1,0 +1,147 @@
+.s-box{
+    width: 100%; 
+    min-height: calc(100vh - 6.4rem);
+    padding-bottom: 4rem;
+
+    .header{
+        padding: 3.2rem 0;
+        @include flex(center, space-between, row);
+
+        .section-search{
+            display: flex;
+            align-items:center;
+
+            .search{
+                margin-right: 1.6rem;
+            }
+
+            .btn{
+                white-space: pre;
+            }
+        }
+    }
+
+
+    ul{
+        width: 100%;
+        .card{
+            background-color: $light-color;
+            border-radius: 8px;
+            padding: 2.4rem;
+
+            &:not(:last-child){
+                margin-bottom: 1.6rem;
+            }
+
+            .card-header{
+                border-bottom: 1px solid #e5e5e5;
+                padding-bottom: 1.6rem;
+
+                .status{
+                    display: inline-block;
+                    padding: .8rem 1.6rem;
+                    background-color: $adittional-color-01;
+                    color: $light-color;
+                    border-radius: 8px;
+                    margin-right: 1.6rem;
+
+                    p{
+                        display: inline;
+                        font-size: 1.2rem;
+                    }
+                }
+
+                span{
+                    font-family: 'Inter';
+                    font-weight: 400;
+                    font-size: 1.2rem;
+                    letter-spacing: -0.04em;
+                    color: $gray-color-400;
+
+                }
+            }
+
+            .card-content{
+                padding-top: 1.6rem;
+                @include flex(flex-start, space-between, row);
+
+                .box{
+                    @include flex(center, flex-start, row);
+
+                    img{
+                        margin-right: 1.6rem;
+                    }
+
+                    .info{
+                        h6{
+                            font-family: 'Inter';
+                            font-weight: 500;
+                            font-size: 1.6rem;
+                            color: $gray-color-100;
+                            margin-bottom: .2rem;
+                        }
+
+                        p{
+                            font-family: 'Inter';
+                            font-weight: 400;
+                            font-size: 1.4rem;
+                            color: $gray-color-200;
+                            margin-bottom: 1.6rem;
+
+                            &.address{
+                                width: 100%;
+                                max-width: 25rem;
+                            }
+                        }
+
+                        span{
+                            font-family: 'Inter';
+                            font-weight: 400;
+                            font-size: 1.2rem;
+                            color: $gray-color-400;
+                        }
+
+                    }
+
+                }
+
+                .produtor{
+                    .nome{
+                        font-family: 'Inter';
+                        font-weight: 400;
+                        font-size: 1.4rem;
+                        color: $gray-color-200;
+                    }
+
+                    .label{
+                        font-family: 'Inter';
+                        font-weight: 400;
+                        font-size: 1.2rem;
+                        color: $gray-color-400;
+                    }
+                }
+
+                .previsao{
+                    .data{
+                        font-family: 'Inter';
+                        font-weight: 500;
+                        font-size: 1.6rem;
+                        letter-spacing: -0.04em;
+                        color: #44494D;
+                        margin-bottom: .4rem;
+                        display: block;
+                    }
+
+                    .label{
+                        font-family: 'Inter';
+                        display: block;
+                        font-weight: 400;
+                        font-size: 1.4rem;
+                        color: $gray-color-200;
+                        margin-bottom: 1.6rem;
+                    }
+                }
+            }
+        }
+    }
+}

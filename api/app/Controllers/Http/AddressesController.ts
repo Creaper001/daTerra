@@ -26,7 +26,7 @@ export default class AddressesController {
       city: body.city,
       neighborhood: body.neighborhood,
       street: body.street,
-      number: body.number,
+      number: Number(body.number),
       complement: body.complement,
       description: body.description,
     });

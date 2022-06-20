@@ -55,10 +55,22 @@ nav{
 
                     svg{
                         margin-right: 1.6rem;
+                        path{
+                            stroke: $light-color;
+                        }
                     }
 
                     &.out{
                         color: $gray-color-400;
+                    }
+
+                    &.active{
+                        color: $brand-color-02;
+                        svg{
+                            path{
+                                stroke: $brand-color-02;
+                            }
+                        }
                     }
                 }
             }

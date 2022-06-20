@@ -18,7 +18,9 @@ class Bancas extends Component {
 
   async deleteAddress(code) {
     await api.delete(`/addresses/${code}`);
-    const address = this.state.address.filter((address) => address.code !== code);
+    const address = this.state.address.filter(
+      (address) => address.code !== code
+    );
     this.setState({ address });
   }
 
@@ -44,16 +46,28 @@ class Bancas extends Component {
                   <div className="text">
                     <h6>{address.street}</h6>
                     <p>
-                      CEP {address.cep} - {address.state} - {address.neighborhood}
+                      CEP {address.cep} - {address.state} -{" "}
+                      {address.neighborhood}
                     </p>
                   </div>
                   <div className="itens">
                     {!address.main && (
-                      <p onClick={() => this.mainAddress(address.code)}>Envie nesse endereço</p>
+                      <p
+                        onClick={() => this.mainAddress(address.code)}
+                        style={{ cursor: "pointer" }}
+                      >
+                        Envie nesse endereço
+                      </p>
                     )}
-                    <svg data-src="./icone/map-pin.svg" fill={address.main ? "#7F8A92" : "transparent"}></svg>
+                    <svg
+                      data-src="./icone/map-pin.svg"
+                      fill={address.main ? "#7F8A92" : "transparent"}
+                    ></svg>
                     <svg data-src="./icone/edit.svg"></svg>
-                    <svg data-src="./icone/trash.svg" onClick={() => this.deleteAddress(address.code)}></svg>
+                    <svg
+                      data-src="./icone/trash.svg"
+                      onClick={() => this.deleteAddress(address.code)}
+                    ></svg>
                   </div>
                 </li>
               ))}
