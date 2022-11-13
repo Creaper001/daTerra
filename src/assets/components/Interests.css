@@ -1,0 +1,38 @@
+.interests {
+  list-style-type: none;
+}
+
+.interests input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+}
+
+.interests input:checked + label:before {
+  content: "";
+  background-color: #249c22;
+}
+
+.interests .item {
+  border: 1px solid #e5e5e5;
+  padding: 24px;
+  padding-right: 50px;
+  cursor: pointer;
+  transition: all 0.4s;
+  display: flex;
+  align-items: center;
+}
+
+.interests .item p {
+  font-size: 16px;
+  color: #44494d;
+}
+
+.interests .item:before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  margin-right: 16px;
+  background-color: #dde2e6;
+  border-radius: 2px;
+  transition: background 0.4s;
+}

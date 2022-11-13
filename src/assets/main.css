@@ -1,0 +1,272 @@
+.menu {
+  width: 100%;
+  height: 80px;
+  min-height: 80px;
+  background: var(--menu_color);
+}
+
+.menu_nav {
+  margin: auto;
+  width: 1160px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu_list {
+  list-style-type: none;
+  display: flex;
+}
+.menu_list li {
+  margin: 0 16px;
+  display: inline;
+}
+
+.link_icon a {
+  display: flex;
+  align-items: center;
+}
+
+.link_icon span {
+  margin-left: 6px;
+}
+
+.link_icon_select a {
+  color: var(--button_color) !important;
+}
+
+.logout a {
+  font-weight: 500;
+  color: var(--disable_font_color);
+  cursor: pointer;
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .title {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text_color);
+}
+
+.button {
+  padding: 8px 16px;
+  background: var(--button_color);
+  border-radius: 8px;
+  color: var(--button_font_color);
+  border: 0;
+  cursor: pointer;
+}
+
+.button_big {
+  width: 200px !important;
+}
+
+.button_login {
+  width: 100% !important;
+  height: 56px !important;
+  background: #025600 !important;
+}
+
+.center {
+  margin: auto;
+  padding: 28px;
+  width: 1088px;
+  height: 100%;
+}
+
+.box {
+  background: var(--box_color);
+  width: 100%;
+  border-radius: 8px;
+  padding: 40px;
+}
+
+.field {
+  margin: 24px 0;
+}
+
+.field_grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 24px;
+}
+
+.form_title {
+  font-weight: 500;
+  color: var(--disable_font_color);
+}
+
+.search {
+  position: relative;
+  width: 325px;
+  height: 60px;
+}
+
+.search_full {
+  width: 100% !important;
+}
+
+.search input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: var(--search_color);
+  padding: 16px 18.5px;
+  padding-right: 53px;
+  color: var(--text_color);
+}
+.search img {
+  position: absolute;
+  top: 19px;
+  right: 21px;
+}
+
+.box_list {
+  padding: 25px 40px;
+  width: 100%;
+  background: var(--box_color);
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.box_list hr {
+  margin: 24px 0;
+  background-color: var(--disable_font_color);
+  height: 1px;
+  border: 0;
+  opacity: 50%;
+}
+
+.box_list .first {
+  display: flex;
+}
+.box_list img {
+  margin-right: 24px;
+}
+
+.box_list .main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box_list .sub {
+  color: var(--disable_font_color);
+}
+
+.box_list .sub ul {
+  padding: 0 22px;
+  display: flex;
+}
+
+.box_list .sub ul li {
+  margin-right: 42px;
+}
+
+.box_list .title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.box_list .info {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  color: var(--subtitle_color);
+}
+
+.box_list .info_link {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  color: #1971f3;
+}
+
+.box_list .subtitle {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: var(--disable_font_color);
+}
+
+.box_list .date {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--text_color);
+}
+
+.box_list .date_label {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  color: var(--disable_font_color);
+}
+
+.box_list .link_button {
+  background: #1971f3;
+  max-height: 40px;
+  padding: 8px 16px;
+  color: var(--button_font_color);
+  border: 0;
+  border-radius: 8px;
+}
+
+.box_list .top {
+  display: flex;
+  align-items: center;
+}
+
+.box_list .top button {
+  padding: 8px 16px;
+  border: 0;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.box_list .top p {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  color: var(--disable_font_color);
+  margin-left: 24px;
+}
+
+.table_select {
+  background: var(--box_color);
+  width: 100%;
+  border-radius: 8px;
+}
+
+.table_select .head {
+  width: 100%;
+  display: flex;
+}
+
+.table_select .head li {
+  text-align: center;
+  width: 100%;
+  display: inline;
+  padding: 20px 94px;
+  border: 1px solid var(--background_color);
+  color: #c4c4c4;
+  cursor: pointer;
+}
+
+.table_select .head li:first-child {
+  border-radius: 8px 0 0 0;
+}
+.table_select .head li:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+.table_select .head .select {
+  color: var(--button_font_color) !important;
+  background: var(--button_color) !important;
+}
+
+.table_select .body li {
+  width: 100%;
+}

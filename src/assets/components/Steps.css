@@ -1,0 +1,42 @@
+.steps {
+  padding: 16px 52px;
+  width: 100%;
+  background: var(--box_color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.number {
+  margin-bottom: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  color: var(--disable_font_color);
+  background: var(--disable_color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.select .number {
+  background: var(--button_color) !important;
+  color: var(--button_font_color) !important;
+}
+
+.select p {
+  font-weight: 600 !important;
+}
+
+.steps p {
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+}

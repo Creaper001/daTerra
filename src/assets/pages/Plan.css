@@ -1,0 +1,18 @@
+.box_history {
+  background: var(--select_color);
+  width: 100%;
+  border-radius: 8px;
+  padding: 15px 25px;
+  color: var(--plan_color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box_history div {
+  display: flex;
+}
+
+.box_history div p {
+  margin-left: 15px;
+}

@@ -1,0 +1,36 @@
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 120px);
+  grid-auto-rows: auto;
+  gap: 14px;
+}
+
+.products > div {
+  padding: 12px 16px;
+  border: 1px solid var(--disable_color);
+  border-radius: 8px;
+}
+
+.products p {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.products .units {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products .units button {
+  padding: 0px 6px;
+  border-radius: 4px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.products .units button.plus {
+  background-color: var(--disable_color);
+}

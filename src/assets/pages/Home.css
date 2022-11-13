@@ -1,0 +1,92 @@
+.home {
+  width: 100%;
+  background: var(--home_color);
+  display: flex;
+  flex-direction: column;
+}
+
+.home h1 {
+  width: 990px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  text-align: center;
+  color: var(--title_color);
+}
+
+.home h2 {
+  margin-top: 14px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--subtitle_color);
+  text-align: center;
+}
+
+.plans {
+  margin: 48px auto;
+  width: 1090px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plan {
+  padding: 25px;
+  width: 348px;
+  height: 458px;
+  background: var(--plan_color);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plan p {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--plan_master_color);
+}
+
+.plan img {
+  width: 268px;
+  height: 219px;
+}
+
+.plan .flag {
+  margin-top: 8px;
+  padding: 4px 16px;
+  border-radius: 25px;
+  color: var(--plan_color);
+  background: #249c22;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+}
+
+.plan .plan_button {
+  text-align: center;
+  padding: 16px;
+  width: 100%;
+  border: 1px solid var(--plan_master_color);
+  color: var(--plan_master_color);
+  border-radius: 8px;
+  font-weight: 600px;
+  font-size: 18px;
+}
+
+.plan_master {
+  height: 560px !important;
+  background: var(--plan_master_color) !important;
+}
+
+.plan_master p {
+  color: var(--plan_color) !important;
+}
+
+.plan_master .plan_button {
+  background: var(--plan_color);
+  border: 1px solid var(--plan_color);
+  color: var(--plan_master_color);
+}

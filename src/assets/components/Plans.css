@@ -1,0 +1,59 @@
+.rPlans {
+  display: flex;
+}
+
+.rPlans input[type="radio"] {
+  visibility: hidden;
+  display: none;
+}
+
+.rPlans input:checked + label {
+  background-color: #025600;
+}
+
+.rPlans input:checked + label:before {
+  content: "";
+  background-color: #249c22;
+}
+
+.rPlans input:checked + label .text h6 {
+  color: #ffffff;
+}
+
+.rPlans input:checked + label .text p {
+  color: #dad8d5;
+}
+
+.rPlans .item {
+  border: 1px solid #e5e5e5;
+  padding: 12px;
+  padding-right: 50px;
+  border-radius: 8px;
+  margin-right: 24px;
+  cursor: pointer;
+  transition: all 0.4s;
+  display: flex;
+  align-items: center;
+}
+
+.rPlans .item .text h6 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #44494d;
+}
+
+.rPlans .item .text p {
+  font-weight: 300;
+  font-size: 14px;
+  color: #7f8792;
+}
+
+.rPlans .item:before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  margin-right: 16px;
+  background-color: #dde2e6;
+  border-radius: 52px;
+  transition: background 0.4s;
+}

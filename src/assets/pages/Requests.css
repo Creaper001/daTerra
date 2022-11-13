@@ -1,0 +1,25 @@
+.requests_modes {
+  display: flex;
+  height: 60px;
+}
+
+.requests_modes div:first-child {
+  border-radius: 8px 0 0 8px;
+}
+.requests_modes div:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.requests_modes div {
+  padding: 16px;
+  height: 100%;
+  border: 1px solid var(--disable_color);
+  background: var(--button_font_color);
+  color: #c4c4c4;
+}
+
+.requests_modes .select {
+  background: var(--select_color) !important;
+  color: var(--button_font_color) !important;
+  font-weight: 600;
+}

@@ -1,0 +1,4 @@
+.breadcrumbs li a {
+  font-weight: 500;
+  color: var(--disable_font_color);
+}
